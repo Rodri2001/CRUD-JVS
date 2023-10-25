@@ -37,9 +37,33 @@ function validarFormulario(e) {
 const agregarEmpleado = () => {
     listaEmpleados.push({ ...objEmpleado })
     mostrarEmpleados()
+    formulario.reset()
+    limpiarObjeto()
 }
 
+const limpiarObjeto = () => {
+    objEmpleado.id = ''
+    objEmpleado.nombre = ''
+    objEmpleado.puesto = ''
+}
+
+const cargarEmpleado = (empleado) => {
+    const {id, nombre ,puesto} = empleado
+    nombreInput.value = nombre
+    puestoInput.value = puesto 
+
+    objEmpleado.id = id
+    
+    formulario.querySelector('button[type="submit"]').textContent = 'Agregar'
+    editando = false
+}
+
+
+
 const mostrarEmpleados = () => {
+
+    limpiarHTML()
+     
     const divEmpleados = document.querySelector('.div-empleados')
 
     listaEmpleados.forEach(empleado => {
@@ -63,4 +87,11 @@ const mostrarEmpleados = () => {
         divEmpleados.appendChild(parrafo)
         divEmpleados.appendChild(hr)
     })
+}
+
+const limpiarHTML = () => {
+    const divEmpleados = document.querySelector('.div-empleados');
+    while(divEmpleados.firstChild) {
+        divEmpleados.removeChild(divEmpleados.firstChild);
+    }
 }
