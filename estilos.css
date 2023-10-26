@@ -53,6 +53,8 @@ input[type="text"] {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    display: block; /* Cambia la disposición del botón a bloque */
+    margin-top: 10px;
 }
 
 /* Estilo del listado de empleados */
@@ -81,4 +83,13 @@ input[type="text"] {
     border-radius: 5px;
     padding: 10px;
     margin: 5px 0;
+}
+
+input#nombre {
+    width: 50%; /* Ajusta el ancho según tus preferencias */
+}
+
+/* Estilo del campo de entrada para el puesto */
+input#puesto {
+    width: 50%; /* Ajusta el ancho según tus preferencias */
 }
